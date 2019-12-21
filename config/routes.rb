@@ -9,11 +9,11 @@ Rails.application.routes.draw do
   get '/instructor/courses', to: 'instructor/courses#new'
   namespace :instructor do
       resources :lessons, only: [:update]
-      resources :sections, only: [] do
-      resources :lessons, only: [:new, :create]
+      resources :sections, only: [:update] do
+      resources :lessons, only: [:create]
       end
       resources :courses, only: [:new, :create, :show] do
-        resources :sections, only: [:new, :create]
+        resources :sections, only: [:create]
     end
   end
 end
