@@ -44,10 +44,6 @@
       Add a new section...
     </button>
 
-<!-- lessons modal -->
-<button type="button" class="btn btn-primary btn-lg float-right new-lesson-button" data-toggle="modal" data-target="#newLessonModal">
-  New Lesson
-</button>
 
   <ul class="sections">
     <% current_course.sections.rank(:row_order).each do |section| %>
@@ -55,6 +51,10 @@
         <div class="header">
           <span class="fa fa-ellipsis-v"></span>
           <%= section.title %>
+          <!-- lessons modal -->
+          <button type="button" class="btn btn-primary btn-lg float-right new-lesson-button" data-toggle="modal" data-target="#newLessonModal" data-lesson-url="<%= instructor_section_lessons_path(section) %>">
+              New Lesson
+          </button>
         </div>
         <span class="fa fa-ellipsis-v"></span>
         <%= section.title %>
